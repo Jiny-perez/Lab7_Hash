@@ -68,7 +68,7 @@ public class PSNUsers {
         
         long pos = users.search(username);
         
-        if (pos != -1) {
+        if (pos!=-1) {
             archivo.seek(pos + 50 + 8);
             archivo.writeBoolean(false);
             users.remove(username);
@@ -79,7 +79,7 @@ public class PSNUsers {
             Trophy type, byte[] trophyImageBytes) throws IOException {
         
         long pos = users.search(username);
-        if (pos == -1) {
+        if (pos==-1) {
             System.out.println("El usuario no existe");
             return;
         }
@@ -110,7 +110,7 @@ public class PSNUsers {
     public void playerInfo(String username) throws IOException {
         long pos = users.search(username);
         
-        if (pos == -1) {
+        if (pos==-1) {
             System.out.println("El usuario no se encontra");
             return;
         }
@@ -166,7 +166,7 @@ public class PSNUsers {
     }
     
     public void cerrar() throws IOException {
-        if (archivo != null) {
+        if (archivo!=null) {
             archivo.close();
         }
     }
