@@ -9,5 +9,13 @@ package hash;
  * @author marye
  */
 public class Entry {
-    
+    public String username;
+    public long pos;
+    public Entry next;
+
+    public Entry(String username, long pos) {
+        this.username = username;
+        this.pos = pos;
+        this.next = null;
+    }
 }
