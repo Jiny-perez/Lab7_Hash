@@ -22,8 +22,39 @@ public class HashTable {
             }
             temp.siguiente = nuevoUsuario;
         }
+    }
 
+    public boolean remove(String username) {
+        Entry actual = inicio;
+        Entry anterior = null;
+
+        while (actual != null) {
+          
+            if (username.equals(actual.username)) {
+                if (anterior == null) {
+                    inicio = actual.siguiente;
+                } else {
+                    anterior.siguiente = actual.siguiente;
+                }
+                return true;
+            }
+            anterior=actual;
+            actual=actual.siguiente;
+            
+        }
+        return false;
     }
     
-    
+    public long search (String username){
+        Entry temp=inicio;
+        
+        while(temp!=null){
+           if(username.equals(temp.username)){
+               return temp.posicion;
+           }
+            temp=temp.siguiente;
+        }
+        return -1;
+    }
+
 }
