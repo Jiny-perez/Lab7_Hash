@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package hash;
 
 /**
@@ -9,5 +5,25 @@ package hash;
  * @author marye
  */
 public class HashTable {
+
+    private Entry inicio = null;
+
+    public void add(String username, long pos) {
+
+        Entry nuevoUsuario = new Entry(username, pos);
+
+        if (inicio == null) {
+            inicio = nuevoUsuario;
+        } else {
+            Entry temp = inicio;
+
+            while (temp.siguiente != null) {
+                temp = temp.siguiente;
+            }
+            temp.siguiente = nuevoUsuario;
+        }
+
+    }
+    
     
 }
