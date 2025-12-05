@@ -20,11 +20,22 @@ public class PSNUsers {
     private HashTable users;
     
     public PSNUsers(String nombreArchivo) throws IOException {
-        
+
         users = new HashTable();
-        archivo = new RandomAccessFile(nombreArchivo + ".psn", "rw");
-        reloadHashTable();
+
+        File f = new File(nombreArchivo + ".psn");
+
+        if (!f.exists()) {
+            f.createNewFile();
+        }
+
+        archivo = new RandomAccessFile(f, "rw");
+
+        if (archivo.length() >= 59) {
+            reloadHashTable();
+        }
     }
+
     
     private void reloadHashTable() throws IOException {
         archivo.seek(0);

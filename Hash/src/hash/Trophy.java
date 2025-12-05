@@ -6,7 +6,7 @@ package hash;
 
 /**
  *
- * @author axelr
+ * @author axel
  */
 public enum Trophy {
     PLATINO(5), ORO(3), PLATA(2), BRONCE(1);
